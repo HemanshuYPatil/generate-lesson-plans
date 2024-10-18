@@ -50,11 +50,11 @@ export async function hasSubscription(): Promise<{
 
 export async function createCheckoutLink(customer: string) {
     const checkout = await stripe.checkout.sessions.create({
-        success_url: `https://www.generatelessonplans.com/dashboard`,
+        success_url: `http://localhost:3000/dashboard`,
         customer: customer, 
         line_items: [
             {
-                price: "price_1QA92fBlhXx5eovwb67YRuqp",
+                price: "price_1QAyDgSB3irmaRjMvOlgI9Ws",
                 quantity: 1
             }
         ], 
@@ -66,14 +66,20 @@ export async function createCheckoutLink(customer: string) {
 
 export async function generateCustomerPortalLink(customerId: string) {
   try {
+
+    
+      console.log(customerId)
+    
+
     const portalSession = await stripe.billingPortal.sessions.create({
       customer: customerId,
-      return_url: `https://www.generatelessonplans.com/dashboard`,
+      return_url: `https://localhost:3000/dashboard`,
     });
 
     return portalSession.url;
   } catch (error) {
     console.error(error);
+    console.log("Error generating customer portal link:", error);
     throw new Error("Failed to generate portal link");
   }
 }

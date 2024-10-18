@@ -16,7 +16,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Generate Lesson Plans",
+  title: "LearnerAI",
   description: "Generate lesson plans for your classes. Save time and create engaging lessons in minutes.",
 };
 

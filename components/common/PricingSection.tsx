@@ -3,7 +3,11 @@ import MaxWidthWrapper from "./MaxWidthWrapper";
 import { tiers } from "@/constants";
 import PricingCard from "./PricingCard";
 
+
 const PricingSection = () => {
+
+
+  
   return (
     <MaxWidthWrapper>
       <div className="py-20">

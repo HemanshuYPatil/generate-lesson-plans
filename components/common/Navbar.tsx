@@ -18,7 +18,7 @@ const Navbar = async () => {
           <Link href="/" className="flex items-center space-x-2">
             <Sparkles className="w-8 h-8 text-primary" />
             <span className="text-xl font-bold text-primary">
-              Generate Lesson Plans
+              LeranerAI
             </span>
           </Link>
           <MobileMenu user={user} />

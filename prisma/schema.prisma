@@ -24,7 +24,7 @@ model LessonPlan {
     title        String
     duration     Int
     subject      String
-    sections     Section[]
+    sections     Section[] // Ensure Section model is defined properly
     createdAt    DateTime  @default(now())
     userId       String
     user         User      @relation(fields: [userId], references: [id])
@@ -33,6 +33,7 @@ model LessonPlan {
     objective    String
     studentLevel String
 }
+
 
 model Section {
     id           String     @id @default(cuid())

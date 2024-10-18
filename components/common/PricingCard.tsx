@@ -13,8 +13,11 @@ import {
   LoginLink,
   RegisterLink,
 } from "@kinde-oss/kinde-auth-nextjs/components";
+import { hasSubscription } from "@/utils/stripe";
 
-const PricingCard = ({
+
+
+const PricingCard = async ({
   tier,
 
   index,
@@ -25,7 +28,9 @@ const PricingCard = ({
     features: string[];
   };
   index: number;
-}) => {
+}) =>  {
+
+  const subscribed = await hasSubscription();
   return (
     <Card key={index} className={index === 1 ? "border-primary" : ""}>
       <CardHeader>
@@ -56,11 +61,20 @@ const PricingCard = ({
           </RegisterLink>
         ) : (
           <LoginLink
+          aria-disabled
             className={buttonVariants({
               variant: "default",
             })}
+            
           >
-            Upgrade to Pro
+            {subscribed ? 
+            (
+              <>
+               Already Owned 
+              </>
+            ) : (
+              <>Upgrade to Pro</>
+            )}
           </LoginLink>
         )}
       </CardFooter>

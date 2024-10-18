@@ -398,7 +398,7 @@ const LessonPlanForm = ({ isSubscribed }: { isSubscribed: boolean }) => {
       if (customSubtopic) formDataToSubmit.set("subtopic", customSubtopic);
     }
 
-    console.log("Form Data: ", Object.fromEntries(formDataToSubmit));
+    // console.log("Form Data: ", Object.fromEntries(formDataToSubmit));
 
     try {
       const response = await CreateLessonPlan(formDataToSubmit);
